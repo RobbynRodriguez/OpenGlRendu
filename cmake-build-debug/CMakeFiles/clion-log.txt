@@ -1,4 +1,4 @@
-/snap/clion/180/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/180/bin/ninja/linux/ninja -G Ninja /home/robbyn/CLionProjects/OpenGlRendu
+/home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/home/robbyn/Bureau/clion-2021.3.3/bin/ninja/linux/ninja -G Ninja /home/robbyn/Bureau/ProjetIG/OpenGlRendu
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
+-- Build files have been written to: /home/robbyn/Bureau/ProjetIG/OpenGlRendu/cmake-build-debug

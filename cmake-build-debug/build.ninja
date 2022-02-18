@@ -39,13 +39,13 @@ include CMakeFiles/rules.ninja
 #############################################
 # Logical path to working directory; prefix for absolute paths.
 
-cmake_ninja_workdir = /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/
+cmake_ninja_workdir = /home/robbyn/Bureau/ProjetIG/OpenGlRendu/cmake-build-debug/
 
 #############################################
 # Utility command for edit_cache
 
 build CMakeFiles/edit_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug && /snap/clion/180/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+  COMMAND = cd /home/robbyn/Bureau/ProjetIG/OpenGlRendu/cmake-build-debug && /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
   DESC = No interactive CMake dialog available...
   restat = 1
 
@@ -56,7 +56,7 @@ build edit_cache: phony CMakeFiles/edit_cache.util
 # Utility command for rebuild_cache
 
 build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
-  COMMAND = cd /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug && /snap/clion/180/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/robbyn/CLionProjects/OpenGlRendu -B/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
+  COMMAND = cd /home/robbyn/Bureau/ProjetIG/OpenGlRendu/cmake-build-debug && /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/bin/cmake --regenerate-during-build -S/home/robbyn/Bureau/ProjetIG/OpenGlRendu -B/home/robbyn/Bureau/ProjetIG/OpenGlRendu/cmake-build-debug
   DESC = Running CMake to regenerate build system...
   pool = console
   restat = 1
@@ -64,68 +64,51 @@ build CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
 build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 # =============================================================================
-# Object build statements for EXECUTABLE target OpenGlRendu
+# Object build statements for EXECUTABLE target helloWindow
 
 
 #############################################
-# Order-only phony target for OpenGlRendu
+# Order-only phony target for helloWindow
 
-build cmake_object_order_depends_target_OpenGlRendu: phony || CMakeFiles/OpenGlRendu.dir
+build cmake_object_order_depends_target_helloWindow: phony || CMakeFiles/helloWindow.dir
 
-build CMakeFiles/OpenGlRendu.dir/main.cpp.o: CXX_COMPILER__OpenGlRendu_Debug /home/robbyn/CLionProjects/OpenGlRendu/main.cpp || cmake_object_order_depends_target_OpenGlRendu
-  DEP_FILE = CMakeFiles/OpenGlRendu.dir/main.cpp.o.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
-  OBJECT_FILE_DIR = CMakeFiles/OpenGlRendu.dir
+build CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/Bureau/ProjetIG/OpenGlRendu/src/HelloWindow.cpp || cmake_object_order_depends_target_helloWindow
+  DEFINES = -DGLFW_DLL
+  DEP_FILE = CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o.d
+  FLAGS = -g -std=gnu++1z
+  INCLUDES = -I/home/robbyn/Bureau/ProjetIG/OpenGlRendu/includes/glad -I/home/robbyn/Bureau/ProjetIG/OpenGlRendu/includes/KHR
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
+  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
 
-build CMakeFiles/OpenGlRendu.dir/src/Data/Mesh.cpp.o: CXX_COMPILER__OpenGlRendu_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/Data/Mesh.cpp || cmake_object_order_depends_target_OpenGlRendu
-  DEP_FILE = CMakeFiles/OpenGlRendu.dir/src/Data/Mesh.cpp.o.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
-  OBJECT_FILE_DIR = CMakeFiles/OpenGlRendu.dir/src/Data
-
-build CMakeFiles/OpenGlRendu.dir/src/Data/BezierCurve.cpp.o: CXX_COMPILER__OpenGlRendu_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierCurve.cpp || cmake_object_order_depends_target_OpenGlRendu
-  DEP_FILE = CMakeFiles/OpenGlRendu.dir/src/Data/BezierCurve.cpp.o.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
-  OBJECT_FILE_DIR = CMakeFiles/OpenGlRendu.dir/src/Data
-
-build CMakeFiles/OpenGlRendu.dir/src/Data/TriangleMesh.cpp.o: CXX_COMPILER__OpenGlRendu_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/Data/TriangleMesh.cpp || cmake_object_order_depends_target_OpenGlRendu
-  DEP_FILE = CMakeFiles/OpenGlRendu.dir/src/Data/TriangleMesh.cpp.o.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
-  OBJECT_FILE_DIR = CMakeFiles/OpenGlRendu.dir/src/Data
-
-build CMakeFiles/OpenGlRendu.dir/src/OpenGl/Drawable.cpp.o: CXX_COMPILER__OpenGlRendu_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/OpenGl/Drawable.cpp || cmake_object_order_depends_target_OpenGlRendu
-  DEP_FILE = CMakeFiles/OpenGlRendu.dir/src/OpenGl/Drawable.cpp.o.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
-  OBJECT_FILE_DIR = CMakeFiles/OpenGlRendu.dir/src/OpenGl
-
-build CMakeFiles/OpenGlRendu.dir/src/OpenGl/Program.cpp.o: CXX_COMPILER__OpenGlRendu_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/OpenGl/Program.cpp || cmake_object_order_depends_target_OpenGlRendu
-  DEP_FILE = CMakeFiles/OpenGlRendu.dir/src/OpenGl/Program.cpp.o.d
-  FLAGS = -g -std=gnu++2a
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
-  OBJECT_FILE_DIR = CMakeFiles/OpenGlRendu.dir/src/OpenGl
+build CMakeFiles/helloWindow.dir/src/glad.c.o: C_COMPILER__helloWindow_Debug /home/robbyn/Bureau/ProjetIG/OpenGlRendu/src/glad.c || cmake_object_order_depends_target_helloWindow
+  DEFINES = -DGLFW_DLL
+  DEP_FILE = CMakeFiles/helloWindow.dir/src/glad.c.o.d
+  FLAGS = -g
+  INCLUDES = -I/home/robbyn/Bureau/ProjetIG/OpenGlRendu/includes/glad -I/home/robbyn/Bureau/ProjetIG/OpenGlRendu/includes/KHR
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
+  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target OpenGlRendu
+# Link build statements for EXECUTABLE target helloWindow
 
 
 #############################################
-# Link the executable OpenGlRendu
+# Link the executable ../bin/helloWindow
 
-build OpenGlRendu: CXX_EXECUTABLE_LINKER__OpenGlRendu_Debug CMakeFiles/OpenGlRendu.dir/main.cpp.o CMakeFiles/OpenGlRendu.dir/src/Data/Mesh.cpp.o CMakeFiles/OpenGlRendu.dir/src/Data/BezierCurve.cpp.o CMakeFiles/OpenGlRendu.dir/src/Data/TriangleMesh.cpp.o CMakeFiles/OpenGlRendu.dir/src/OpenGl/Drawable.cpp.o CMakeFiles/OpenGlRendu.dir/src/OpenGl/Program.cpp.o
+build ../bin/helloWindow: CXX_EXECUTABLE_LINKER__helloWindow_Debug CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o CMakeFiles/helloWindow.dir/src/glad.c.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.2
   FLAGS = -g
-  OBJECT_DIR = CMakeFiles/OpenGlRendu.dir
+  LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libglfw.so.3.2  -lGLU  -lX11  -lXrandr  -lpthread  -ldl
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = OpenGlRendu
-  TARGET_PDB = OpenGlRendu.dbg
+  TARGET_FILE = ../bin/helloWindow
+  TARGET_PDB = helloWindow.dbg
 
 # =============================================================================
 # Target aliases.
+
+build helloWindow: phony ../bin/helloWindow
 
 # =============================================================================
 # Folder targets.
@@ -133,9 +116,9 @@ build OpenGlRendu: CXX_EXECUTABLE_LINKER__OpenGlRendu_Debug CMakeFiles/OpenGlRen
 # =============================================================================
 
 #############################################
-# Folder: /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
+# Folder: /home/robbyn/Bureau/ProjetIG/OpenGlRendu/cmake-build-debug
 
-build all: phony OpenGlRendu
+build all: phony ../bin/helloWindow
 
 # =============================================================================
 # Built-in targets
@@ -144,14 +127,14 @@ build all: phony OpenGlRendu
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
+build build.ninja: RERUN_CMAKE | ../CMakeLists.txt /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CheckFunctionExists.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CheckLibraryExists.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindOpenGL.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindX11.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build ../CMakeLists.txt /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake /snap/clion/180/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
+build ../CMakeLists.txt /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCXXInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeCommonLanguageInclude.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeGenericSystem.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeInitializeConfigs.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeLanguageInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInformation.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CMakeSystemSpecificInitialize.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CheckFunctionExists.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/CheckLibraryExists.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/CMakeCommonCompilerMacros.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-C.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU-CXX.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Compiler/GNU.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindOpenGL.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindPackageMessage.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/FindX11.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-C.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU-CXX.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux-GNU.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/Linux.cmake /home/robbyn/Bureau/clion-2021.3.3/bin/cmake/linux/share/cmake-3.21/Modules/Platform/UnixPaths.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Config.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3ConfigVersion.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets-none.cmake /usr/lib/x86_64-linux-gnu/cmake/glfw3/glfw3Targets.cmake CMakeCache.txt CMakeFiles/3.21.1/CMakeCCompiler.cmake CMakeFiles/3.21.1/CMakeCXXCompiler.cmake CMakeFiles/3.21.1/CMakeSystem.cmake: phony
 
 
 #############################################
