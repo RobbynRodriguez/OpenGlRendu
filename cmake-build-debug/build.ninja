@@ -93,6 +93,13 @@ build CMakeFiles/helloWindow.dir/src/glad.c.o: C_COMPILER__helloWindow_Debug /ho
   OBJECT_DIR = CMakeFiles/helloWindow.dir
   OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
 
+build CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/includes/stb_image.cpp || cmake_object_order_depends_target_helloWindow
+  DEP_FILE = CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
+  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/includes
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target helloWindow
@@ -101,7 +108,7 @@ build CMakeFiles/helloWindow.dir/src/glad.c.o: C_COMPILER__helloWindow_Debug /ho
 #############################################
 # Link the executable ../bin/helloWindow
 
-build ../bin/helloWindow: CXX_EXECUTABLE_LINKER__helloWindow_Debug CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o CMakeFiles/helloWindow.dir/src/Shader.cpp.o CMakeFiles/helloWindow.dir/src/glad.c.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
+build ../bin/helloWindow: CXX_EXECUTABLE_LINKER__helloWindow_Debug CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o CMakeFiles/helloWindow.dir/src/Shader.cpp.o CMakeFiles/helloWindow.dir/src/glad.c.o CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libglfw.so.3.3  -lGLU  -lX11  -lXrandr  -lpthread  -ldl
   OBJECT_DIR = CMakeFiles/helloWindow.dir

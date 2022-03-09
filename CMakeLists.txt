@@ -28,6 +28,6 @@ include_directories(
         includes/KHR
 )
 
-add_executable(helloWindow ${folder_source} ${folder_header} src/Shader.cpp src/Shader.h)
+add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h)
 
 target_link_libraries(helloWindow ${LIBS} ${CMAKE_DL_LIBS})
