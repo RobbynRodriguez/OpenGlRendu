@@ -6,8 +6,10 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
-#include "Shader.h"
-#include "camera.h"
+#include "tools/Shader.h"
+#include "tools/camera.h"
+#include "Data/BezierCurve.h"
+#include "Data/BezierSurface.h"
 
 #include <iostream>
 
@@ -82,8 +84,10 @@ int main()
     Shader lightingShader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/colors.vs", "/home/robbyn/CLionProjects/OpenGlRendu/Shaders/colors.fs");
     Shader lightCubeShader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/light_cube.vs", "/home/robbyn/CLionProjects/OpenGlRendu/Shaders/light_cube.fs");
 
-    // set up vertex data (and buffer(s)) and configure vertex attributes
-    // ------------------------------------------------------------------
+
+
+//     set up vertex data (and buffer(s)) and configure vertex attributes
+//     ------------------------------------------------------------------
     float vertices[] = {
             // positions          // normals           // texture coords
             -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
@@ -128,20 +132,20 @@ int main()
             -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
             -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
     };
-    // world space positions of our cubes
-    glm::vec3 cubePositions[] = {
-            glm::vec3( 0.0f,  0.0f,  0.0f),
-            glm::vec3( 2.0f,  5.0f, -15.0f),
-            glm::vec3(-1.5f, -2.2f, -2.5f),
-            glm::vec3(-3.8f, -2.0f, -12.3f),
-            glm::vec3( 2.4f, -0.4f, -3.5f),
-            glm::vec3(-1.7f,  3.0f, -7.5f),
-            glm::vec3( 1.3f, -2.0f, -2.5f),
-            glm::vec3( 1.5f,  2.0f, -2.5f),
-            glm::vec3( 1.5f,  0.2f, -1.5f),
-            glm::vec3(-1.3f,  1.0f, -1.5f)
-    };
-    // first, configure the cube's VAO (and VBO)
+//    // world space positions of our cubes
+//    glm::vec3 cubePositions[] = {
+//            glm::vec3( 0.0f,  0.0f,  0.0f),
+//            glm::vec3( 2.0f,  5.0f, -15.0f),
+//            glm::vec3(-1.5f, -2.2f, -2.5f),
+//            glm::vec3(-3.8f, -2.0f, -12.3f),
+//            glm::vec3( 2.4f, -0.4f, -3.5f),
+//            glm::vec3(-1.7f,  3.0f, -7.5f),
+//            glm::vec3( 1.3f, -2.0f, -2.5f),
+//            glm::vec3( 1.5f,  2.0f, -2.5f),
+//            glm::vec3( 1.5f,  0.2f, -1.5f),
+//            glm::vec3(-1.3f,  1.0f, -1.5f)
+//    };
+//    // first, configure the cube's VAO (and VBO)
     unsigned int VBO, cubeVAO;
     glGenVertexArrays(1, &cubeVAO);
     glGenBuffers(1, &VBO);
@@ -167,16 +171,51 @@ int main()
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    // load textures (we now use a utility function to keep the code more organized)
-    // -----------------------------------------------------------------------------
+//    // load textures (we now use a utility function to keep the code more organized)
+//    // -----------------------------------------------------------------------------
     unsigned int diffuseMap = loadTexture("/home/robbyn/CLionProjects/OpenGlRendu/recources/textures/container2.png");
     unsigned int specularMap = loadTexture("/home/robbyn/CLionProjects/OpenGlRendu/resources/textures/container2_specular.png");
-
-    // shader configuration
-    // --------------------
+//
+//    // shader configuration
+//    // --------------------
     lightingShader.use();
     lightingShader.setInt("material.diffuse", 0);
     lightingShader.setInt("material.specular", 1);
+
+
+    vector<glm::vec3> pts_ctrl1,pts_ctrl2;
+    glm::vec3 pt1,pt2,pt3,pt4,pt5,pt6,pt7;
+    pt1 = glm::vec3(1.1f,  1.1f, 1.1f);
+    pt2 = glm::vec3(2.2f, 2.2f, 1.1f);
+    pt3 = glm::vec3(3.8f, 3.2f, 1.1f);
+    pt4 = glm::vec3(6.3f,  4.2f, 2.1f) ;
+    pt5 = glm::vec3(1.6f,1.1f,-1.7f);
+    pt6 = glm::vec3(1.6f,3.1f,-4.2f);
+    pt7 = glm::vec3(1.6f,4.8f,-5.1f);
+    pts_ctrl1.push_back(pt1);
+    pts_ctrl1.push_back(pt2);
+    pts_ctrl1.push_back(pt3);
+    pts_ctrl1.push_back(pt4);
+    pts_ctrl2.push_back(pt1);
+    pts_ctrl2.push_back(pt5);
+    pts_ctrl2.push_back(pt6);
+    pts_ctrl2.push_back(pt7);
+
+//    std::cout << "salut" << std::endl;
+//    cout << pt1.Position[0] << std::endl;
+//    cout << pt1.Position[1] << std::endl;
+//    cout << pt1.Position[2] << std::endl;
+
+
+
+
+    Shader courbeShader = Shader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/curveShader.vs","/home/robbyn/CLionProjects/OpenGlRendu/Shaders/curveShader.fs");
+
+    BezierCurve courbe1 = BezierCurve(pts_ctrl1,4,10);
+    BezierCurve courbe2 = BezierCurve(pts_ctrl2,4,10);
+    BezierSurface surface = BezierSurface(courbe1,courbe2);
+
+//    glPolygonMode(GL_FRONT_AND_BACK,GL_LINE);
 
     // render loop
     // -----------
@@ -194,7 +233,7 @@ int main()
 
         // render
         // ------
-        glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
+        glClearColor(0.5f, 0.5f, 0.5f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         // be sure to activate shader when setting uniforms/drawing objects
@@ -206,10 +245,13 @@ int main()
         lightingShader.setVec3("light.ambient", 0.2f, 0.2f, 0.2f);
         lightingShader.setVec3("light.diffuse", 0.5f, 0.5f, 0.5f);
         lightingShader.setVec3("light.specular", 1.0f, 1.0f, 1.0f);
+        lightingShader.setFloat("light.constant", 1.0f);
+        lightingShader.setFloat("light.linear", 0.09f);
+        lightingShader.setFloat("light.quadratic", 0.032f);
 
         // material properties
-        lightingShader.setFloat("material.shininess", 64.0f);
-
+        lightingShader.setFloat("material.shininess", 32.0f);
+//
         // view/projection transformations
         glm::mat4 projection = glm::perspective(glm::radians(camera.Zoom), (float)SCR_WIDTH / (float)SCR_HEIGHT, 0.1f, 100.0f);
         glm::mat4 view = camera.GetViewMatrix();
@@ -218,26 +260,53 @@ int main()
 
         // world transformation
         glm::mat4 model = glm::mat4(1.0f);
+        model = glm::scale(model, glm::vec3(1.0f));
         lightingShader.setMat4("model", model);
 
-        // bind diffuse map
+
+//        courbeShader.use();
+        courbeShader.setMat4("model", model);
+        courbeShader.setMat4("projection", projection);
+        courbeShader.setMat4("view", view);
+
+        courbe1.draw();
+        courbe2.draw();
+        surface.draw();
+//
+//        // bind diffuse map
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, diffuseMap);
         // bind specular map
         glActiveTexture(GL_TEXTURE1);
         glBindTexture(GL_TEXTURE_2D, specularMap);
+//
+//         render the cube
+//         glBindVertexArray(cubeVAO);
+//         glDrawArrays(GL_TRIANGLES, 0, 36);
+//         glBindVertexArray(0);
+//
+//        // render containers
+//        glBindVertexArray(cubeVAO);
+//        for (unsigned int i = 0; i < 10; i++)
+//        {
+//            // calculate the model matrix for each object and pass it to shader before drawing
+//            glm::mat4 model = glm::mat4(1.0f);
+//            model = glm::translate(model, cubePositions[i]);
+//            float angle = 20.0f * i;
+//            model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+//            lightingShader.setMat4("model", model);
+//
+//            glDrawArrays(GL_TRIANGLES, 0, 36);
+//        }
+//
+//
+//         a lamp object is weird when we only have a directional light, don't render the light object
+//        lightPos.x = sin(glfwGetTime()) * 2.0f;
+//        lightPos.z = cos(glfwGetTime()) * 2.0f;
+//        lightPos.y = 0;
 
-        // render the cube
-        glBindVertexArray(cubeVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
-
-        // change the light's position values over time (can be done anywhere in the render loop actually, but try to do it at least before using the light source positions)
-        lightPos.x = sin(glfwGetTime()) * 2.0f;
-        lightPos.z = cos(glfwGetTime()) * 2.0f;
-        lightPos.y = 0;
-
-
-        // also draw the lamp object
+        lightPos = {-1.0f,4.0f,-2.0f};
+//
         lightCubeShader.use();
         lightCubeShader.setMat4("projection", projection);
         lightCubeShader.setMat4("view", view);
@@ -245,9 +314,10 @@ int main()
         model = glm::translate(model, lightPos);
         model = glm::scale(model, glm::vec3(0.2f)); // a smaller cube
         lightCubeShader.setMat4("model", model);
-
-        glBindVertexArray(lightCubeVAO);
-        glDrawArrays(GL_TRIANGLES, 0, 36);
+//
+         glBindVertexArray(lightCubeVAO);
+         glDrawArrays(GL_TRIANGLES, 0, 36);
+//         glBindVertexArray(0);
 
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
@@ -358,4 +428,23 @@ unsigned int loadTexture(const char *path)
     }
 
     return textureID;
+}
+
+
+double computeBinominal(int n, int k)
+{
+
+    double value = 1.0;
+
+    for (int i = 1; i <= k; i++)
+    {
+
+        value = value * ((n + 1 - i) / i);
+    }
+
+    if (n == k){
+        value = 1;
+    }
+
+    return value;
 }

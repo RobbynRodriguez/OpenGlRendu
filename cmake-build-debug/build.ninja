@@ -72,38 +72,45 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 build cmake_object_order_depends_target_helloWindow: phony || CMakeFiles/helloWindow.dir
 
+build CMakeFiles/helloWindow.dir/src/Data/Mesh.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/Data/Mesh.cpp || cmake_object_order_depends_target_helloWindow
+  DEP_FILE = CMakeFiles/helloWindow.dir/src/Data/Mesh.cpp.o.d
+  FLAGS = -g -std=gnu++2a
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
+  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src/Data
+
 build CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/HelloWindow.cpp || cmake_object_order_depends_target_helloWindow
   DEP_FILE = CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR
-  OBJECT_DIR = CMakeFiles/helloWindow.dir
-  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
-
-build CMakeFiles/helloWindow.dir/src/Shader.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/Shader.cpp || cmake_object_order_depends_target_helloWindow
-  DEP_FILE = CMakeFiles/helloWindow.dir/src/Shader.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR
-  OBJECT_DIR = CMakeFiles/helloWindow.dir
-  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
-
-build CMakeFiles/helloWindow.dir/src/camera.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/camera.cpp || cmake_object_order_depends_target_helloWindow
-  DEP_FILE = CMakeFiles/helloWindow.dir/src/camera.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR
+  FLAGS = -g -std=gnu++2a
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes
   OBJECT_DIR = CMakeFiles/helloWindow.dir
   OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
 
 build CMakeFiles/helloWindow.dir/src/glad.c.o: C_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/glad.c || cmake_object_order_depends_target_helloWindow
   DEP_FILE = CMakeFiles/helloWindow.dir/src/glad.c.o.d
   FLAGS = -g
-  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes
   OBJECT_DIR = CMakeFiles/helloWindow.dir
   OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src
 
+build CMakeFiles/helloWindow.dir/src/tools/Shader.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Shader.cpp || cmake_object_order_depends_target_helloWindow
+  DEP_FILE = CMakeFiles/helloWindow.dir/src/tools/Shader.cpp.o.d
+  FLAGS = -g -std=gnu++2a
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
+  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src/tools
+
+build CMakeFiles/helloWindow.dir/src/tools/camera.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/src/tools/camera.cpp || cmake_object_order_depends_target_helloWindow
+  DEP_FILE = CMakeFiles/helloWindow.dir/src/tools/camera.cpp.o.d
+  FLAGS = -g -std=gnu++2a
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes
+  OBJECT_DIR = CMakeFiles/helloWindow.dir
+  OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/src/tools
+
 build CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o: CXX_COMPILER__helloWindow_Debug /home/robbyn/CLionProjects/OpenGlRendu/includes/stb_image.cpp || cmake_object_order_depends_target_helloWindow
   DEP_FILE = CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o.d
-  FLAGS = -g -std=gnu++17
-  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR
+  FLAGS = -g -std=gnu++2a
+  INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes
   OBJECT_DIR = CMakeFiles/helloWindow.dir
   OBJECT_FILE_DIR = CMakeFiles/helloWindow.dir/includes
 
@@ -115,7 +122,7 @@ build CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o: CXX_COMPILER__helloWi
 #############################################
 # Link the executable ../bin/helloWindow
 
-build ../bin/helloWindow: CXX_EXECUTABLE_LINKER__helloWindow_Debug CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o CMakeFiles/helloWindow.dir/src/Shader.cpp.o CMakeFiles/helloWindow.dir/src/camera.cpp.o CMakeFiles/helloWindow.dir/src/glad.c.o CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
+build ../bin/helloWindow: CXX_EXECUTABLE_LINKER__helloWindow_Debug CMakeFiles/helloWindow.dir/src/Data/Mesh.cpp.o CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o CMakeFiles/helloWindow.dir/src/glad.c.o CMakeFiles/helloWindow.dir/src/tools/Shader.cpp.o CMakeFiles/helloWindow.dir/src/tools/camera.cpp.o CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o | /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libglfw.so.3.3  -lGLU  -lX11  -lXrandr  -lpthread  -ldl
   OBJECT_DIR = CMakeFiles/helloWindow.dir

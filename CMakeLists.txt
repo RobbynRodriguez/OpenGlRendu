@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.21)
 project(OpenGlRendu)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/bin)
 
@@ -26,8 +26,10 @@ FILE(GLOB_RECURSE
 include_directories(
         includes/glad
         includes/KHR
+        includes/glm
+        includes
 )
 
-add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h src/camera.cpp src/camera.h)
+add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h src/tools/camera.cpp src/tools/camera.h src/Data/Mesh.cpp src/Data/Mesh.h src/Data/BezierCurve.h src/Data/BezierSurface.h src/tools/Lights.h)
 
 target_link_libraries(helloWindow ${LIBS} ${CMAKE_DL_LIBS})
