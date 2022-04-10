@@ -33,13 +33,13 @@ using namespace std;
 //    string type;
 //    string path;
 //};
-
+using namespace glm;
 
 class BezierSurface {
     // mesh Data
     vector<Vertex>       vertices;
     vector<unsigned int> indices;
-    vector<Texture>      textures;
+    vector<vec3>      textures;
     unsigned int VAO;
     BezierCurve C1,C2;
 
@@ -54,6 +54,7 @@ public:
 //        init_ctrl_pts();
 
         init_mesh();
+        CalculateNormals();
 
         // now that we have all the required data, set the vertex buffers and its attribute pointers.
         setupMesh();
@@ -80,21 +81,6 @@ private:
     vector<vector<glm::vec3>> controlPoints;
     vector<glm::vec3> cctrl;
 
-//    void init_ctrl_pts(){
-//        for(glm::vec3 pC1 : C1.pts_ctrl){
-//            vector<glm::vec3> cctrl;
-//            cctrl.clear();
-//            for(glm::vec3 pC2 : C2.pts_ctrl){
-//                if(pC1 == pC2){
-//                    cctrl.push_back(pC1);
-//                } else {
-//                    cctrl.push_back(pC1+pC2);
-//                }
-//            }
-//            controlPoints.push_back(cctrl);
-//
-//        }
-//    }
 
     glm::vec3 lerp(float t,vector<glm::vec3> pts_ctrl)
     {
@@ -112,23 +98,36 @@ private:
     void CalculateNormals()
     {
         size_t vertexCount = vertices.size()*6;
+        vec3 normal2;
+        glm::vec3 normal;
 
-        for( int i = indices[0]; i < indices.size(); i += 3 )
+        for( int i = 0; i < vertices.size(); ++i )
         {
+            vertices[i].Normal = {0.0,0.0,0.0};
+        }
+        for( int i = 0; i < indices.size(); i += 3 )
+        {
+
             // get the three vertices that make the faces
-            glm::vec3 p0 = vertices[i].Position;
-            glm::vec3 p1 = vertices[i+1].Position;
-            glm::vec3 p2 = vertices[i+2].Position;
+            glm::vec3 p0 = vertices[indices[i]].Position;
+            glm::vec3 p1 = vertices[indices[i+1]].Position;
+            glm::vec3 p2 = vertices[indices[i+2]].Position;
 
             glm::vec3 e1 = p1 - p0;
             glm::vec3 e2 = p2 - p0;
-            glm::vec3 normal = glm::cross( e1, e2 );
-            normal = glm::normalize(normal);
-
+            normal = glm::cross( e1, e2 );
+//            normal2 = glm::normalize(normal);
+//            cout << "e1 : "<< e1[0] << e1[1] << e2[2] << endl;
+//            cout << "e2 : "<< e2[0] << e2[1] << e2[2] << endl;
+//            cout << "normal : "<< normal[0] << normal[1]<< normal[2] << endl;
+//            cout << "normal nrom: "<< normal2[0] << normal2[1]<< normal2[2] << endl;
             // Store the face's normal for each of the vertices that make up the face.
-            vertices[i].Normal += normal ;
-            vertices[i+1].Normal  += normal ;
-            vertices[i+2].Normal  += normal ;
+            vertices[indices[i]].Normal += normal ;
+//            vertices[indices[i]].TexCoords = {0.0f,0.0f};
+            vertices[indices[i+1]].Normal  += normal ;
+//            vertices[indices[i+1]].TexCoords = {0.0f,1.0f};
+            vertices[indices[i+2]].Normal  += normal;
+//            vertices[indices[i+2]].TexCoords = {1.0f,0.0f};
         }
 
 
@@ -140,18 +139,13 @@ private:
     }
 
 
+
+
     void init_mesh() {
         vector<glm::vec3> pts_c1,pts_c2;
         pts_c1 = C1.vertices;
         pts_c2 = C2.vertices;
         Vertex point;
-//        for(double u = 0; u<1 ; u+= 0.01){
-//            for(double v = 0; v<1 ; v+= 0.01){
-//
-//                point.Position = lerp(u,C1.pts_ctrl)   lerp(v,C2.pts_ctrl);
-//                vertices.push_back(point);
-//            }
-//        }
 
         for(glm::vec3 pt1 : pts_c1)
             for(glm::vec3 pt2 : pts_c2) {
@@ -170,8 +164,8 @@ private:
                 indices.push_back((i+1)*m+j+1);
                 //2nd triangle
                 indices.push_back(i*m+j);
-                indices.push_back((i+1)*m+j+1);
                 indices.push_back((i+1)*m+j);
+                indices.push_back((i+1)*m+j+1);
             }
         }
 

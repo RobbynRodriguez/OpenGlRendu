@@ -11,6 +11,7 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(X11 REQUIRED)
 
+
 FILE(GLOB_RECURSE
         folder_source
         ${CMAKE_SOURCE_DIR}/src/*.cpp
@@ -27,9 +28,10 @@ include_directories(
         includes/glad
         includes/KHR
         includes/glm
+        includes/ImGui
         includes
 )
 
-add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h src/tools/camera.cpp src/tools/camera.h src/Data/Mesh.cpp src/Data/Mesh.h src/Data/BezierCurve.h src/Data/BezierSurface.h src/tools/Lights.h)
+add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h src/tools/camera.h src/Data/Mesh.h src/Data/BezierCurve.h src/Data/BezierSurface.h src/tools/Lights.h src/Data/Model.h)
 
 target_link_libraries(helloWindow ${LIBS} ${CMAKE_DL_LIBS})

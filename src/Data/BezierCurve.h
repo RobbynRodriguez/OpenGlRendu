@@ -14,7 +14,8 @@ class BezierCurve {
 public:
 
     int nb_pts_ctrl;
-    int nb_seg;
+    float nb_seg;
+    float pas;
     unsigned int VAO_CTRL,VAO_VER,VBO,EBO;
     vector<glm::vec3> pts_ctrl;
     vector<glm::vec3> vertices;
@@ -27,8 +28,9 @@ public:
     BezierCurve(vector<glm::vec3> pts_ctrl, const int nb_pts_ctrl,const int nb_seg)
     : pts_ctrl(pts_ctrl) {
         this->nb_pts_ctrl = nb_pts_ctrl;
-        this->nb_seg = nb_seg;
+        this->nb_seg = (float) nb_seg;
         this->vertices.clear();
+        this->pas = 1.0f/nb_seg;
 
         computeNVertexBesierCurve3D();
 
@@ -40,14 +42,6 @@ public:
         }
 
         initialize();
-//        for (int j = 0; j < 100; j++) {
-//            for (int i = 0; i < 3; i++)
-//                std::cout << vertices[j][i] << " ";
-//
-//            std::cout << endl;
-//        }
-//        std::cout << vertices.size()<< endl;
-//        draw();
     }
 
     int getNbPtsCtrl() const {
@@ -69,7 +63,7 @@ public:
 
     void computeNVertexBesierCurve3D()
     {
-        for (float t = 0.0; t <= 1.0; t += 0.01) {
+        for (float t = 0.0; t <= 1.0; t += pas) {
             vertices.push_back(lerp(t));
         }
     }
