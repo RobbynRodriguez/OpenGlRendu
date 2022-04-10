@@ -30,10 +30,10 @@ uniform Light light[3];
 void main()
 {
     // ambient
-    vec3 result;
+    vec3 result,ambient;
 //     vec3 ambient = light.ambient * texture(material.diffuse, TexCoords).rgb;
     for(int i = 0 ; i< 3 ; i++){
-        vec3 ambient = light[i].ambient * vec3(0.1,0.8,0.85);
+        ambient += light[i].ambient * texture(material.diffuse, TexCoords).rgb;
 
     // diffuse
         vec3 norm = normalize(Normal);

@@ -123,11 +123,8 @@ private:
 //            cout << "normal nrom: "<< normal2[0] << normal2[1]<< normal2[2] << endl;
             // Store the face's normal for each of the vertices that make up the face.
             vertices[indices[i]].Normal += normal ;
-//            vertices[indices[i]].TexCoords = {0.0f,0.0f};
             vertices[indices[i+1]].Normal  += normal ;
-//            vertices[indices[i+1]].TexCoords = {0.0f,1.0f};
             vertices[indices[i+2]].Normal  += normal;
-//            vertices[indices[i+2]].TexCoords = {1.0f,0.0f};
         }
 
 
@@ -143,13 +140,14 @@ private:
 
     void init_mesh() {
         vector<glm::vec3> pts_c1,pts_c2;
-        pts_c1 = C1.vertices;
-        pts_c2 = C2.vertices;
+//        pts_c1 = C1.vertices;
+//        pts_c2 = C2.vertices;
         Vertex point;
 
-        for(glm::vec3 pt1 : pts_c1)
-            for(glm::vec3 pt2 : pts_c2) {
-                point.Position = pt1 * pt2;
+        for(float i = 0 ; i< C1.vertices.size(); i ++)
+            for(float j = 0 ; j< C2.vertices.size(); j ++) {
+                point.Position = C1.vertices[i] * C2.vertices[j];
+                point.TexCoords = {i/C1.vertices.size(),j/C2.vertices.size()};
                 vertices.push_back(point);
             }
 

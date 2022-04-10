@@ -17,7 +17,7 @@ public:
     unsigned int ID;
     // constructor generates the shader on the fly
     // ------------------------------------------------------------------------
-    Shader(const char* vertexPath, const char* fragmentPath, const char* geometryPath = nullptr)
+    Shader(char* vertexPath, char* fragmentPath, const char* geometryPath = nullptr)
     {
         // 1. retrieve the vertex/fragment source code from filePath
         std::string vertexCode;
@@ -30,6 +30,14 @@ public:
         vShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
         fShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
         gShaderFile.exceptions (std::ifstream::failbit | std::ifstream::badbit);
+
+//        char vpath[PATH_MAX];
+//        char fpath[PATH_MAX];
+//        realpath(fragmentPath,fpath);
+//        realpath(vertexPath,vpath);
+//        std::cout << vpath << std::endl;
+//
+//        std::cout << vertexPath << std::endl;
         try
         {
             // open files

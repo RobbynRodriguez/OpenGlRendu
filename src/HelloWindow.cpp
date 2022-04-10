@@ -90,10 +90,10 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader lightingShader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/colors.vs", "/home/robbyn/CLionProjects/OpenGlRendu/Shaders/colors.fs");
-    Shader lightCubeShader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/light_cube.vs", "/home/robbyn/CLionProjects/OpenGlRendu/Shaders/light_cube.fs");
-    Shader normalShader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/normal.vs","/home/robbyn/CLionProjects/OpenGlRendu/Shaders/normal.fs","/home/robbyn/CLionProjects/OpenGlRendu/Shaders/normal.gs");
-    Shader courbeShader = Shader("/home/robbyn/CLionProjects/OpenGlRendu/Shaders/curveShader.vs","/home/robbyn/CLionProjects/OpenGlRendu/Shaders/curveShader.fs");
+    Shader lightingShader("../Shaders/colors.vs", "../Shaders/colors.fs");
+    Shader lightCubeShader("../Shaders/light_cube.vs", "../Shaders/light_cube.fs");
+    Shader normalShader("../Shaders/normal.vs","../Shaders/normal.fs","../Shaders/normal.gs");
+    Shader courbeShader = Shader("../Shaders/curveShader.vs","../Shaders/curveShader.fs");
 
 //     set up vertex data (and buffer(s)) and configure vertex attributes
 //     ------------------------------------------------------------------
@@ -170,8 +170,8 @@ int main()
 
 //    // load textures (we now use a utility function to keep the code more organized)
 //    // -----------------------------------------------------------------------------
-    unsigned int diffuseMap = loadTexture("/home/robbyn/CLionProjects/OpenGlRendu/recources/textures/container2.png");
-//    unsigned int specularMap = loadTexture("/home/robbyn/CLionProjects/OpenGlRendu/resources/textures/container2_specular.png");
+//    unsigned int diffuseMap = loadTexture("../recources/textures/grass.jpg");
+//    unsigned int specularMap = loadTexture("../recources/textures/container2_specular.png");
 //
 //    // shader configuration
 //    // --------------------
@@ -189,7 +189,7 @@ int main()
     glm::vec3 pt1,pt2,pt3,pt4,pt5,pt6,pt7,pt8;
     pt1 = glm::vec3(1.0f,  1.0f, 1.0f);
     pt2 = glm::vec3(2.2f, 2.2f, 1.1f);
-    pt3 = glm::vec3(3.8f, 3.2f, 1.1f);
+    pt3 = glm::vec3(3.8f, 1.7f, 1.1f);
     pt4 = glm::vec3(5.3f,  2.8f, 2.1f) ;
     pt5 = glm::vec3(1.6f,1.1f,-1.7f);
     pt6 = glm::vec3(1.6f,3.1f,-3.2f);
@@ -218,8 +218,8 @@ int main()
 
     //BEZIER
 
-    BezierCurve courbe1 = BezierCurve(pts_ctrl1,4,50);
-    BezierCurve courbe2 = BezierCurve(pts_ctrl2,5,50);
+    BezierCurve courbe1 = BezierCurve(pts_ctrl1,4,100);
+    BezierCurve courbe2 = BezierCurve(pts_ctrl2,5,100);
     BezierSurface surface = BezierSurface(courbe1,courbe2);
 
 
@@ -293,8 +293,8 @@ int main()
             surface.draw();
 //
 //        // bind diffuse map
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, diffuseMap);
+//        glActiveTexture(GL_TEXTURE0);
+//        glBindTexture(GL_TEXTURE_2D, diffuseMap);
 
         lightCubeShader.use();
         lightCubeShader.setMat4("projection", projection);
