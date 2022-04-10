@@ -14,6 +14,12 @@ cmake --build CLionProjects/OpenGlRendu/cmake-build-debug --target helloWindow
 
 dépendances : GLFW Glad X11
 
+Racourcis : 
+
+-W : passage en "Polygon Mode"
+
+-N : affichage des normales
+
 
 # Fonctionnalités: 
 
