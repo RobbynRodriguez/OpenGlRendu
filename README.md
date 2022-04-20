@@ -8,9 +8,13 @@ Projet réaliser sur l'IDE CLion.
 
 # Réccupération & installation :
 
-Réccupération via commandes git puis build avec Cmake :
+Réccupération via commandes git puis build avec Cmake 
 
-cmake --build CLionProjects/OpenGlRendu/cmake-build-debug --target helloWindow
+cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/test/CLionProjects/OpenGlRendu
+
+make
+
+puis lancement de l'exe dans OpenGlRendu/bin/helloWindow
 
 dépendances : GLFW Glad X11
 
