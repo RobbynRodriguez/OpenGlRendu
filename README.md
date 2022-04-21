@@ -10,10 +10,13 @@ Projet réaliser sur l'IDE CLion.
 
 Réccupération via commandes git puis build avec Cmake 
 
-cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/test/CLionProjects/OpenGlRendu
+dans le dossier OpenGlRendu :
 
-make
+& cmake .
 
+& make
+
+nécéssite Cmake 3.16 ou supérieur (peut être modifier dans le CmakeList.txt
 puis lancement de l'exe dans OpenGlRendu/bin/helloWindow
 
 dépendances : GLFW Glad X11
