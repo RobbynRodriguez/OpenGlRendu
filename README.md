@@ -12,9 +12,9 @@ Réccupération via commandes git puis build avec Cmake
 
 dans le dossier OpenGlRendu :
 
-& cmake .
+    cmake .
 
-& make
+    make
 
 nécéssite Cmake 3.16 ou supérieur (peut être modifier dans le CmakeList.txt
 puis lancement de l'exe dans OpenGlRendu/bin/helloWindow
