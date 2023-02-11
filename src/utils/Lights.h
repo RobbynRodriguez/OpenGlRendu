@@ -5,7 +5,7 @@
 #ifndef OPENGLRENDU_LIGHTS_H
 #define OPENGLRENDU_LIGHTS_H
 
-#include <glad/glad.h> // holds all OpenGL type declarations
+#include "glad.h" // holds all OpenGL type declarations
 
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>

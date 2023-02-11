@@ -16,12 +16,17 @@ FILE(GLOB_RECURSE
         folder_source
         ${CMAKE_SOURCE_DIR}/src/*.cpp
         ${CMAKE_SOURCE_DIR}/src/*.c
+        ${CMAKE_SOURCE_DIR}/src/Data/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/Data/*.c
+        ${CMAKE_SOURCE_DIR}/src/utils/*.cpp
+        ${CMAKE_SOURCE_DIR}/src/utils/*.c
         )
 
 FILE(GLOB_RECURSE
         folder_header
         ${CMAKE_SOURCE_DIR}/src/*.h
-
+        ${CMAKE_SOURCE_DIR}/src/Data/*.h
+        ${CMAKE_SOURCE_DIR}/src/utils/*.h
         )
 
 include_directories(
@@ -32,6 +37,6 @@ include_directories(
         includes
 )
 
-add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h src/tools/camera.h src/Data/Mesh.h src/Data/BezierCurve.h src/Data/BezierSurface.h src/tools/Lights.h src/Data/Model.h)
+add_executable(helloWindow ${folder_source} ${folder_header} includes/stb/stb_image.h includes/stb/stb_image.cpp )
 
 target_link_libraries(helloWindow ${LIBS} ${CMAKE_DL_LIBS})

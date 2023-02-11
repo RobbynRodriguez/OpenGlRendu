@@ -7,7 +7,7 @@
 
 
 #include <tuple>
-#include "Mesh.h"
+#include "../utils/Mesh.h"
 #include <math.h>
 
 class BezierCurve {
