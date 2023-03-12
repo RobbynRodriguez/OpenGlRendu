@@ -40,6 +40,8 @@ struct PointLight {
     float linear;
     float quadratic;
 
+    vec4 color;
+
     vec3 ambient;
     vec3 diffuse;
     vec3 specular;
@@ -89,6 +91,7 @@ public:
             shader.setFloat(name+".constant", 1.0f);
             shader.setFloat(name+".linear", 0.027f);
             shader.setFloat(name+".quadratic", 0.0028f);
+            shader.setVec4(name+".color", 1.0f,1.0f,1.0f,1.0f);
         }
 
 

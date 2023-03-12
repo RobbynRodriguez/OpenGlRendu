@@ -1,6 +1,6 @@
-/snap/clion/189/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MAKE_PROGRAM=/snap/clion/189/bin/ninja/linux/ninja -G Ninja -S /home/robbyn/CLionProjects/OpenGlRendu -B /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
--- The C compiler identification is GNU 10.3.0
--- The CXX compiler identification is GNU 10.3.0
+/snap/clion/229/bin/cmake/linux/x64/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /home/robbyn/CLionProjects/OpenGlRendu -B /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
+-- The C compiler identification is GNU 9.4.0
+-- The CXX compiler identification is GNU 9.4.0
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Check for working C compiler: /usr/bin/cc - skipped
@@ -23,8 +23,6 @@
 -- Looking for remove - found
 -- Looking for shmat
 -- Looking for shmat - found
--- Looking for IceConnectionNumber in ICE
--- Looking for IceConnectionNumber in ICE - found
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
