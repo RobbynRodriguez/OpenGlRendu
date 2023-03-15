@@ -12,7 +12,11 @@ Réccupération via commandes git puis build avec Cmake
 
 dans le dossier OpenGlRendu :
 
-    cmake .
+    mkdir build
+    
+    cd build
+
+    cmake ..
 
     make
 
@@ -23,44 +27,41 @@ dépendances : GLFW Glad X11
 
 Racourcis : 
 
--W : passage en "Polygon Mode"
+-N : On/Off bloom
 
--N : affichage des normales
+-B : On/Off Blinn-Phong
+
+déplacement fait avec Z,Q,S,D 
+maj gauche pour descendre
+espace pour monter
+
+possibilité de zoomer avec la souris (molette)
 
 
-# Fonctionnalités: 
+# Fonctionnalités ajoutées: 
 
-- Courbes de Bézier : 
-
-    Mise en place d'une méthode de discrétisation de l'espace paramétrique pour l'approximation de la courbe par des segments de droite uniforme dans   l'espace paramétrique (à partir du nombre de segment donné par l'utilisateur)
-- Visualisation de la courbe et de son polygone de contrôle
-- Surface de Béziers :
-
-   Discrétisation de la surface avec définition des attributs suivants sur les sommets (position,normale)
-- Visualisation des surfaces selon 2 modes :
-
-    Ombrage diffus (Lambertien) simple en considérant une seule source de lumière
-
-    Visualisation de la normale (interpolée) sur la surface
-    
-- Rendu temps réel :
-
-    Version demandée avec les paramètres donnés de façon simple (pas de textures)
-
-    Mise en place d'un éclairage 3 points sur un fond uni.
+Bloom, HDR, éclairage microfacette (Blinn-Phong).
     
     
 # Problèmes rencontrés : 
 
-Assez fier de mes résultats, il manque cependant quelques fonctionnalités qui n'ont pas pu être développés à temps et qui seront ajoutés par la suite si mes problèmes trouvent solutions. Projet que je continuerai à mes heures perdues.
+  Lors de l'implémentation du bloom, je n'arrivais pas à obtenir le bon résultats, soit j'avais un écran noir, soit que quelque traits lumineux.
+  Après en avoir discuter avec un ami, mon problème venait du fait que j'avais oublier de crée un deuxième frame buffer.
+  
+  Côté animation, je m'y suis mis un peu trop tard ( commencé le 9 mars) car je voulais que mon éclairage ainsi que mon bloom fonctionne.
+  
+  J'ai quelques classes (Bone et skin) de créer mais rien de finit. Problème au niveau des poids que j'initialise mais que lorsque je veux y accéder, n'existe plus.
+  
+  Temps estimé Hors TP : 15h rendu, 7h animation
+
+
 
 TODO:
 
-- Ajout de texture à la courbe.
-- Ajout d'une deuxième méthode Uniforme en longueur de segment (tentative faite en faisant une dichotomie)
-- Fixation des lumières par rapport à la caméra 
-- Implantation d'un modèle de réflectance à microfacette selon la spécification donnée en annexe B de la spécification GLTF 2.0
-- Ajout d'une interface graphique ImGui (en cours)
+
+- Implantation d'un modèle de réflectance à microfacette selon la spécification donnée en annexe B de la spécification GLTF 2.0 (fait)
+- Ajout d'une interface graphique ImGui (echec)
+- nettoyage code (URGENT)
 
 
 
