@@ -5,13 +5,13 @@
 # compile CXX with /usr/bin/c++
 C_DEFINES = 
 
-C_INCLUDES = -I/home/robbyn/Bureau/OpenGlRendu/includes/glad -I/home/robbyn/Bureau/OpenGlRendu/includes/KHR -I/home/robbyn/Bureau/OpenGlRendu/includes/glm -I/home/robbyn/Bureau/OpenGlRendu/includes/ImGui -I/home/robbyn/Bureau/OpenGlRendu/includes
+C_INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes/ImGui -I/home/robbyn/CLionProjects/OpenGlRendu/includes
 
 C_FLAGS = -g -fdiagnostics-color=always
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/robbyn/Bureau/OpenGlRendu/includes/glad -I/home/robbyn/Bureau/OpenGlRendu/includes/KHR -I/home/robbyn/Bureau/OpenGlRendu/includes/glm -I/home/robbyn/Bureau/OpenGlRendu/includes/ImGui -I/home/robbyn/Bureau/OpenGlRendu/includes
+CXX_INCLUDES = -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glad -I/home/robbyn/CLionProjects/OpenGlRendu/includes/KHR -I/home/robbyn/CLionProjects/OpenGlRendu/includes/glm -I/home/robbyn/CLionProjects/OpenGlRendu/includes/ImGui -I/home/robbyn/CLionProjects/OpenGlRendu/includes
 
 CXX_FLAGS = -g -fdiagnostics-color=always -std=gnu++2a
 

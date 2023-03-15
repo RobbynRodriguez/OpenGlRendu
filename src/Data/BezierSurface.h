@@ -146,7 +146,7 @@ private:
 
         for(float i = 0 ; i< C1.vertices.size(); i ++)
             for(float j = 0 ; j< C2.vertices.size(); j ++) {
-                point.Position = C1.vertices[i] * C2.vertices[j];
+                point.Position = vec4(C1.vertices[i] * C2.vertices[j],0);
                 point.TexCoords = {i/C1.vertices.size(),j/C2.vertices.size()};
                 vertices.push_back(point);
             }
@@ -200,8 +200,6 @@ private:
         glEnableVertexAttribArray(2);
         glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, TexCoords));
         // vertex tangent
-        glEnableVertexAttribArray(3);
-        glVertexAttribPointer(3, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)offsetof(Vertex, Tangent));
         glBindVertexArray(0);
     }
 

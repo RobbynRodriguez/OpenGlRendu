@@ -1,12 +1,14 @@
 file(REMOVE_RECURSE
-  "/home/robbyn/Bureau/OpenGlRendu/bin/helloWindow"
-  "/home/robbyn/Bureau/OpenGlRendu/bin/helloWindow.pdb"
+  "/home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow"
+  "/home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow.pdb"
   "CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o"
   "CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o.d"
   "CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o"
   "CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o.d"
   "CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o"
   "CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o.d"
+  "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o"
+  "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o.d"
   "CMakeFiles/helloWindow.dir/src/tools/glad.c.o"
   "CMakeFiles/helloWindow.dir/src/tools/glad.c.o.d"
 )

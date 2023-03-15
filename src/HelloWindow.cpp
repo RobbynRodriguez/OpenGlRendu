@@ -17,6 +17,7 @@
 #include "Data/BezierSurface.h"
 #include "tools/Lights.h"
 #include "tools/Bone.h"
+#include "tools/Skin.h"
 #include <vector>
 
 #include <iostream>
@@ -31,6 +32,12 @@ unsigned int loadTexture(const char *string, bool b);
 void renderCube();
 
 void renderQuad();
+
+Mesh vertices_to_mesh(float pDouble[288], int i);
+
+void apply_weights(Mesh *mesh, vector<Bone> vector1);
+
+void Linear_skinning(Mesh *pMesh, vector<Bone> vector1);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -309,10 +316,19 @@ int main()
 
     //ANIMATION
 
-    Bone bone1(0);
-    Bone bone2(1,0);
+//    Bone bone1(0);
+//    Bone bone2(1,0);
 
-    vector<Bone> skeleton = {bone1,bone1};
+//    vector<Bone> skeleton = {bone1,bone1};
+
+//    Mesh mesh = vertices_to_mesh(vertices,288);
+
+//    Skin skin(skeleton,mesh);
+
+//    skin.apply_weights();
+
+//    skin.Linear_skinning();
+
 
 
 
@@ -477,42 +493,32 @@ int main()
     return 0;
 }
 
+
+
 Mesh vertices_to_mesh(float *vertices,int size){
+    // position
+    glm::vec4 Position;
+    // normal
+    glm::vec3 Normal;
+    // texCoords
+    glm::vec2 TexCoords;
+
+    vector<Vertex> vert;
+    Vertex vex;
 
     for(int i = 0; i<size  ; i+= 8){
-
+        Position = vec4(vertices[i],vertices[i+1],vertices[i+2],0);
+        Normal = vec3(vertices[i+3],vertices[i+4],vertices[i+5]);
+        TexCoords = vec2(vertices[i+6],vertices[i+7]);
+        vex.Position = Position;
+        vex.Normal = Normal;
+        vex.TexCoords = TexCoords;
+        vert.push_back(vex);
     }
+
+    return Mesh(vert);
 }
 
-
-void Linear_skinning(Mesh *mesh,vector<Bone> skeleton){
-    glm::mat4  transfo;
-    vector<Vertex> vertices = mesh->vertices;
-
-    for(int i = 0; i < mesh->vertices.size() ; i++){
-        Vertex vertex = vertices[i];
-        if(vertex.weights.size() != skeleton.size()){
-            std::cout << "weights size != bones size!" << std::endl;
-        }
-        glm::mat4 transfo = glm::mat4();
-        for(int j = 0 ; i< skeleton.size(); j++){
-            transfo += vertex.weights[j] * skeleton[j].transfo;
-        }
-        vertex.Position = transfo * vertex.Position;
-    }
-}
-
-void apply_weights(Mesh *mesh, vector<Bone> skeleton){
-    for(Vertex vertex : mesh->vertices){
-        float distance = 0.0;
-        for(Bone bone : skeleton){
-            distance += glm::distance(bone.coord,vertex.Position);
-        }
-        for(int i = 0 ; i < skeleton.size() ; i++){
-            vertex.weights[i] = (1-glm::distance(vertex.Position,skeleton[i].coord)/distance);
-        }
-    }
-}
 
 
 unsigned int cubeVAO = 0;

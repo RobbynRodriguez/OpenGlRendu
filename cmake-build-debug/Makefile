@@ -57,10 +57,10 @@ RM = /snap/clion/229/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robbyn/Bureau/OpenGlRendu
+CMAKE_SOURCE_DIR = /home/robbyn/CLionProjects/OpenGlRendu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug
+CMAKE_BINARY_DIR = /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug/CMakeFiles /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -201,6 +201,30 @@ src/tools/Bone.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.s
 .PHONY : src/tools/Bone.cpp.s
 
+src/tools/Skin.o: src/tools/Skin.cpp.o
+.PHONY : src/tools/Skin.o
+
+# target to build an object file
+src/tools/Skin.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o
+.PHONY : src/tools/Skin.cpp.o
+
+src/tools/Skin.i: src/tools/Skin.cpp.i
+.PHONY : src/tools/Skin.i
+
+# target to preprocess a source file
+src/tools/Skin.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.i
+.PHONY : src/tools/Skin.cpp.i
+
+src/tools/Skin.s: src/tools/Skin.cpp.s
+.PHONY : src/tools/Skin.s
+
+# target to generate assembly for a file
+src/tools/Skin.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.s
+.PHONY : src/tools/Skin.cpp.s
+
 src/tools/glad.o: src/tools/glad.c.o
 .PHONY : src/tools/glad.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/tools/Bone.o"
 	@echo "... src/tools/Bone.i"
 	@echo "... src/tools/Bone.s"
+	@echo "... src/tools/Skin.o"
+	@echo "... src/tools/Skin.i"
+	@echo "... src/tools/Skin.s"
 	@echo "... src/tools/glad.o"
 	@echo "... src/tools/glad.i"
 	@echo "... src/tools/glad.s"
