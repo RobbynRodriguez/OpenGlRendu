@@ -38,7 +38,7 @@ espace pour monter
 possibilité de zoomer avec la souris (molette)
 
 
-# Fonctionnalités ajoutés: 
+# Fonctionnalités ajoutées: 
 
 Bloom, HDR, éclairage microfacette (Blinn-Phong).
     
