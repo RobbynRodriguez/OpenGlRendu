@@ -295,15 +295,15 @@ int main()
     // positions
     std::vector<glm::vec3> lightPositions;
     lightPositions.push_back(glm::vec3( 0.0f, 2.5f,  1.5f));
-    lightPositions.push_back(glm::vec3(-4.0f, 2.5f, -3.0f));
-    lightPositions.push_back(glm::vec3( 3.0f, 2.5f,  1.0f));
-    lightPositions.push_back(glm::vec3(-.8f,  2.4f, -1.0f));
+//    lightPositions.push_back(glm::vec3(-4.0f, 2.5f, -3.0f));
+//    lightPositions.push_back(glm::vec3( 3.0f, 2.5f,  1.0f));
+//    lightPositions.push_back(glm::vec3(-.8f,  2.4f, -1.0f));
     // colors
     std::vector<glm::vec3> lightColors;
     lightColors.push_back(glm::vec3(5.0f,   5.0f,  5.0f));
-    lightColors.push_back(glm::vec3(5.0f,  5.0f,  5.0f));
-    lightColors.push_back(glm::vec3(0.0f,   5.0f,  5.0f));
-    lightColors.push_back(glm::vec3(5.0f,   5.0f,  5.0f));
+//    lightColors.push_back(glm::vec3(5.0f,  5.0f,  5.0f));
+//    lightColors.push_back(glm::vec3(5.0f,   5.0f,  5.0f));
+//    lightColors.push_back(glm::vec3(5.0f,   5.0f,  5.0f));
 
     Blinn_shader.use();
     Blinn_shader.setInt("diffuseTexture", 0);
@@ -411,29 +411,29 @@ int main()
         renderCube();
 
         model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(-1.0f, -1.0f, 2.0));
+        model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 2.0));
         model = glm::rotate(model, glm::radians(60.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
         Blinn_shader.setMat4("model", model);
         renderCube();
 
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(0.0f, 2.7f, 4.0));
-        model = glm::rotate(model, glm::radians(23.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
-        model = glm::scale(model, glm::vec3(1.25));
-        Blinn_shader.setMat4("model", model);
-        renderCube();
-
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(-2.0f, 1.0f, -3.0));
-        model = glm::rotate(model, glm::radians(124.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
-        Blinn_shader.setMat4("model", model);
-        renderCube();
-
-        model = glm::mat4(1.0f);
-        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0));
-        model = glm::scale(model, glm::vec3(0.5f));
-        Blinn_shader.setMat4("model", model);
-        renderCube();
+//        model = glm::mat4(1.0f);
+//        model = glm::translate(model, glm::vec3(0.0f, 2.7f, 4.0));
+//        model = glm::rotate(model, glm::radians(23.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
+//        model = glm::scale(model, glm::vec3(1.25));
+//        Blinn_shader.setMat4("model", model);
+//        renderCube();
+//
+//        model = glm::mat4(1.0f);
+//        model = glm::translate(model, glm::vec3(-2.0f, 1.0f, -3.0));
+//        model = glm::rotate(model, glm::radians(124.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
+//        Blinn_shader.setMat4("model", model);
+//        renderCube();
+//
+//        model = glm::mat4(1.0f);
+//        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0));
+//        model = glm::scale(model, glm::vec3(0.5f));
+//        Blinn_shader.setMat4("model", model);
+//        renderCube();
 
         // finally show all the light sources as bright cubes
         shaderLight.use();
@@ -600,18 +600,18 @@ void processInput(GLFWwindow *window) {
         camera.ProcessKeyboard(DOWN, deltaTime);
 //    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
 //        draw_Normals = not draw_Normals;
-    if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
-        // Find the rasterizing mode.
-        GLint rastMode;
-        glGetIntegerv(GL_POLYGON_MODE, &rastMode);
-
-        // Switch modes depending on current rasterizing mode.
-        if (rastMode == GL_FILL) {
-            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-        } else {
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-        }
-    }
+//    if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
+//        // Find the rasterizing mode.
+//        GLint rastMode;
+//        glGetIntegerv(GL_POLYGON_MODE, &rastMode);
+//
+//        // Switch modes depending on current rasterizing mode.
+//        if (rastMode == GL_FILL) {
+//            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//        } else {
+//            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+//        }
+//    }
     if (glfwGetKey(window, GLFW_KEY_B) == GLFW_PRESS && !blinnKeyPressed)
     {
         blinn = !blinn;
