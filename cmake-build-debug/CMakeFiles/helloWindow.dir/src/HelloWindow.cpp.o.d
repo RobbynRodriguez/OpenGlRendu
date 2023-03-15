@@ -1,8 +1,8 @@
 CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: \
- /home/robbyn/CLionProjects/OpenGlRendu/src/HelloWindow.cpp \
+ /home/robbyn/Bureau/OpenGlRendu/src/HelloWindow.cpp \
  /usr/include/stdc-predef.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/glad/glad.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/KHR/khrplatform.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/glad/glad.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -19,7 +19,7 @@ CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/GLFW/glfw3.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stddef.h /usr/include/GL/gl.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/../includes/stb_image.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/../includes/stb_image.h \
  /usr/include/stdio.h /usr/lib/gcc/x86_64-linux-gnu/9/include/stdarg.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -266,12 +266,12 @@ CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: \
  /usr/include/glm/ext/vector_uint1_precision.hpp \
  /usr/include/c++/9/cstring /usr/include/string.h /usr/include/strings.h \
  /usr/include/glm/gtc/type_ptr.inl \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/ImGui/imgui.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/ImGui/imconfig.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/ImGui/imgui_impl_glfw.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/ImGui/imgui_impl_opengl3.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Shader.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/glad/glad.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/ImGui/imgui.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/ImGui/imconfig.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/ImGui/imgui_impl_glfw.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/ImGui/imgui_impl_opengl3.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/tools/Shader.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/glad/glad.h \
  /usr/include/c++/9/string /usr/include/c++/9/bits/stringfwd.h \
  /usr/include/c++/9/bits/memoryfwd.h \
  /usr/include/c++/9/bits/char_traits.h /usr/include/c++/9/bits/postypes.h \
@@ -348,19 +348,20 @@ CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: \
  /usr/include/x86_64-linux-gnu/c++/9/bits/c++io.h \
  /usr/include/c++/9/bits/fstream.tcc /usr/include/c++/9/sstream \
  /usr/include/c++/9/bits/sstream.tcc /usr/include/c++/9/iostream \
- /home/robbyn/CLionProjects/OpenGlRendu/src/tools/camera.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/tools/camera.h \
  /usr/include/c++/9/vector /usr/include/c++/9/bits/stl_uninitialized.h \
  /usr/include/c++/9/utility /usr/include/c++/9/bits/stl_relops.h \
  /usr/include/c++/9/bits/stl_vector.h \
  /usr/include/c++/9/bits/stl_bvector.h /usr/include/c++/9/bits/vector.tcc \
- /home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierCurve.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/Data/BezierCurve.h \
  /usr/include/c++/9/tuple /usr/include/c++/9/array \
  /usr/include/c++/9/bits/uses_allocator.h \
  /usr/include/c++/9/bits/invoke.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/Data/Mesh.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/Data/../tools/Shader.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/Data/Mesh.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/Data/../tools/Shader.h \
  /usr/include/c++/9/math.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierSurface.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierCurve.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Lights.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Shader.h
+ /home/robbyn/Bureau/OpenGlRendu/src/Data/BezierSurface.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/Data/BezierCurve.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/tools/Lights.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/tools/Shader.h \
+ /home/robbyn/Bureau/OpenGlRendu/src/tools/Bone.h

@@ -1,5 +1,5 @@
 CMakeFiles/helloWindow.dir/src/tools/glad.c.o: \
- /home/robbyn/CLionProjects/OpenGlRendu/src/tools/glad.c \
+ /home/robbyn/Bureau/OpenGlRendu/src/tools/glad.c \
  /usr/include/stdc-predef.h /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/x86_64-linux-gnu/sys/cdefs.h \
@@ -50,8 +50,8 @@ CMakeFiles/helloWindow.dir/src/tools/glad.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
  /usr/include/strings.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/glad/glad.h \
- /home/robbyn/CLionProjects/OpenGlRendu/includes/KHR/khrplatform.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/glad/glad.h \
+ /home/robbyn/Bureau/OpenGlRendu/includes/KHR/khrplatform.h \
  /usr/lib/gcc/x86_64-linux-gnu/9/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h /usr/include/dlfcn.h \

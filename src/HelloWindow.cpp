@@ -16,6 +16,7 @@
 #include "Data/BezierCurve.h"
 #include "Data/BezierSurface.h"
 #include "tools/Lights.h"
+#include "tools/Bone.h"
 #include <vector>
 
 #include <iostream>
@@ -115,6 +116,23 @@ float vertices[] = {
         0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
         -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
         -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
+};
+
+//float bone_vertices[] = {
+//        0.0f,0.4f,0.0f, // 0
+//        -0.4f,0.0f,-0.4f, // 1
+//        0.4f,0.0f,-0.4f, // 2
+//        0.4f,0.0f,0.4f, //3
+//        -0.4f,0.0f,0.4f //4
+//        0.0f,
+//
+//};
+
+float bone_indices[] = {
+        0,1,2,
+        0,2,3,
+        0,3,4,
+        0,4,1
 };
 
 
@@ -269,16 +287,16 @@ int main()
     // -------------
     // positions
     std::vector<glm::vec3> lightPositions;
-    lightPositions.push_back(glm::vec3( 0.0f, 0.5f,  1.5f));
-    lightPositions.push_back(glm::vec3(-4.0f, 0.5f, -3.0f));
-    lightPositions.push_back(glm::vec3( 3.0f, 0.5f,  1.0f));
+    lightPositions.push_back(glm::vec3( 0.0f, 2.5f,  1.5f));
+    lightPositions.push_back(glm::vec3(-4.0f, 2.5f, -3.0f));
+    lightPositions.push_back(glm::vec3( 3.0f, 2.5f,  1.0f));
     lightPositions.push_back(glm::vec3(-.8f,  2.4f, -1.0f));
     // colors
     std::vector<glm::vec3> lightColors;
     lightColors.push_back(glm::vec3(5.0f,   5.0f,  5.0f));
-    lightColors.push_back(glm::vec3(10.0f,  0.0f,  0.0f));
-    lightColors.push_back(glm::vec3(0.0f,   0.0f,  15.0f));
-    lightColors.push_back(glm::vec3(0.0f,   5.0f,  0.0f));
+    lightColors.push_back(glm::vec3(5.0f,  5.0f,  5.0f));
+    lightColors.push_back(glm::vec3(0.0f,   5.0f,  5.0f));
+    lightColors.push_back(glm::vec3(5.0f,   5.0f,  5.0f));
 
     Blinn_shader.use();
     Blinn_shader.setInt("diffuseTexture", 0);
@@ -287,6 +305,16 @@ int main()
     shaderBloomFinal.use();
     shaderBloomFinal.setInt("scene", 0);
     shaderBloomFinal.setInt("bloomBlur", 1);
+
+
+    //ANIMATION
+
+    Bone bone1(0);
+    Bone bone2(1,0);
+
+    vector<Bone> skeleton = {bone1,bone1};
+
+
 
 
 
@@ -407,36 +435,37 @@ int main()
         }
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-        // 2. blur bright fragments with two-pass Gaussian Blur
-        // --------------------------------------------------
-        bool horizontal = true, first_iteration = true;
-        unsigned int amount = 10;
-        shaderBlur.use();
-        for (unsigned int i = 0; i < amount; i++)
-        {
-            glBindFramebuffer(GL_FRAMEBUFFER, pingpongFBO[horizontal]);
-            shaderBlur.setInt("horizontal", horizontal);
-            glBindTexture(GL_TEXTURE_2D, first_iteration ? colorBuffers[1] : pingpongColorbuffers[!horizontal]);  // bind texture of other framebuffer (or scene if first iteration)
+            // 2. blur bright fragments with two-pass Gaussian Blur
+            // --------------------------------------------------
+            bool horizontal = true, first_iteration = true;
+            unsigned int amount = 10;
+            shaderBlur.use();
+            for (unsigned int i = 0; i < amount; i++) {
+                glBindFramebuffer(GL_FRAMEBUFFER, pingpongFBO[horizontal]);
+                shaderBlur.setInt("horizontal", horizontal);
+                glBindTexture(GL_TEXTURE_2D, first_iteration ? colorBuffers[1]
+                                                             : pingpongColorbuffers[!horizontal]);  // bind texture of other framebuffer (or scene if first iteration)
+                renderQuad();
+                horizontal = !horizontal;
+                if (first_iteration)
+                    first_iteration = false;
+            }
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+
+            // 3. now render floating point color buffer to 2D quad and tonemap HDR colors to default framebuffer's (clamped) color range
+            // --------------------------------------------------------------------------------------------------------------------------
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            shaderBloomFinal.use();
+            glActiveTexture(GL_TEXTURE0);
+            glBindTexture(GL_TEXTURE_2D, colorBuffers[0]);
+            glActiveTexture(GL_TEXTURE1);
+            glBindTexture(GL_TEXTURE_2D, pingpongColorbuffers[!horizontal]);
+            shaderBloomFinal.setInt("bloom", bloom);
+            shaderBloomFinal.setFloat("exposure", exposure);
             renderQuad();
-            horizontal = !horizontal;
-            if (first_iteration)
-                first_iteration = false;
-        }
-        glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
-        // 3. now render floating point color buffer to 2D quad and tonemap HDR colors to default framebuffer's (clamped) color range
-        // --------------------------------------------------------------------------------------------------------------------------
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        shaderBloomFinal.use();
-        glActiveTexture(GL_TEXTURE0);
-        glBindTexture(GL_TEXTURE_2D, colorBuffers[0]);
-        glActiveTexture(GL_TEXTURE1);
-        glBindTexture(GL_TEXTURE_2D, pingpongColorbuffers[!horizontal]);
-        shaderBloomFinal.setInt("bloom", bloom);
-        shaderBloomFinal.setFloat("exposure", exposure);
-        renderQuad();
 
-        std::cout << "bloom: " << (bloom ? "on" : "off") << "| exposure: " << exposure << std::endl;
 
         // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
         // -------------------------------------------------------------------------------
@@ -446,6 +475,43 @@ int main()
 
     glfwTerminate();
     return 0;
+}
+
+Mesh vertices_to_mesh(float *vertices,int size){
+
+    for(int i = 0; i<size  ; i+= 8){
+
+    }
+}
+
+
+void Linear_skinning(Mesh *mesh,vector<Bone> skeleton){
+    glm::mat4  transfo;
+    vector<Vertex> vertices = mesh->vertices;
+
+    for(int i = 0; i < mesh->vertices.size() ; i++){
+        Vertex vertex = vertices[i];
+        if(vertex.weights.size() != skeleton.size()){
+            std::cout << "weights size != bones size!" << std::endl;
+        }
+        glm::mat4 transfo = glm::mat4();
+        for(int j = 0 ; i< skeleton.size(); j++){
+            transfo += vertex.weights[j] * skeleton[j].transfo;
+        }
+        vertex.Position = transfo * vertex.Position;
+    }
+}
+
+void apply_weights(Mesh *mesh, vector<Bone> skeleton){
+    for(Vertex vertex : mesh->vertices){
+        float distance = 0.0;
+        for(Bone bone : skeleton){
+            distance += glm::distance(bone.coord,vertex.Position);
+        }
+        for(int i = 0 ; i < skeleton.size() ; i++){
+            vertex.weights[i] = (1-glm::distance(vertex.Position,skeleton[i].coord)/distance);
+        }
+    }
 }
 
 
@@ -526,8 +592,8 @@ void processInput(GLFWwindow *window) {
         camera.ProcessKeyboard(UP, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
         camera.ProcessKeyboard(DOWN, deltaTime);
-    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-        draw_Normals = not draw_Normals;
+//    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+//        draw_Normals = not draw_Normals;
     if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
         // Find the rasterizing mode.
         GLint rastMode;
@@ -548,6 +614,15 @@ void processInput(GLFWwindow *window) {
     if (glfwGetKey(window, GLFW_KEY_B) == GLFW_RELEASE)
     {
         blinnKeyPressed = false;
+    }
+    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS && !bloomKeyPressed)
+    {
+        bloom = !bloom;
+        bloomKeyPressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_RELEASE)
+    {
+        bloomKeyPressed = false;
     }
 }
 

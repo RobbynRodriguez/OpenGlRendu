@@ -57,10 +57,10 @@ RM = /snap/clion/229/bin/cmake/linux/x64/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/robbyn/CLionProjects/OpenGlRendu
+CMAKE_SOURCE_DIR = /home/robbyn/Bureau/OpenGlRendu
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug
+CMAKE_BINARY_DIR = /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug/CMakeFiles /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/robbyn/Bureau/OpenGlRendu/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -177,6 +177,30 @@ src/HelloWindow.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.s
 .PHONY : src/HelloWindow.cpp.s
 
+src/tools/Bone.o: src/tools/Bone.cpp.o
+.PHONY : src/tools/Bone.o
+
+# target to build an object file
+src/tools/Bone.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o
+.PHONY : src/tools/Bone.cpp.o
+
+src/tools/Bone.i: src/tools/Bone.cpp.i
+.PHONY : src/tools/Bone.i
+
+# target to preprocess a source file
+src/tools/Bone.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.i
+.PHONY : src/tools/Bone.cpp.i
+
+src/tools/Bone.s: src/tools/Bone.cpp.s
+.PHONY : src/tools/Bone.s
+
+# target to generate assembly for a file
+src/tools/Bone.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.s
+.PHONY : src/tools/Bone.cpp.s
+
 src/tools/glad.o: src/tools/glad.c.o
 .PHONY : src/tools/glad.o
 
@@ -216,6 +240,9 @@ help:
 	@echo "... src/HelloWindow.o"
 	@echo "... src/HelloWindow.i"
 	@echo "... src/HelloWindow.s"
+	@echo "... src/tools/Bone.o"
+	@echo "... src/tools/Bone.i"
+	@echo "... src/tools/Bone.s"
 	@echo "... src/tools/glad.o"
 	@echo "... src/tools/glad.i"
 	@echo "... src/tools/glad.s"
