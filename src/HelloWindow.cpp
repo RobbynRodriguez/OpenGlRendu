@@ -18,6 +18,7 @@
 #include "tools/Lights.h"
 #include "tools/Bone.h"
 #include "tools/Skin.h"
+#include "Data/Cube.h"
 #include <vector>
 
 #include <iostream>
@@ -29,15 +30,9 @@ void processInput(GLFWwindow *window);
 
 unsigned int loadTexture(const char *string, bool b);
 
-void renderCube();
-
 void renderQuad();
 
-Mesh vertices_to_mesh(float pDouble[288], int i);
-
-void apply_weights(Mesh *mesh, vector<Bone> vector1);
-
-void Linear_skinning(Mesh *pMesh, vector<Bone> vector1);
+//Mesh vertices_to_mesh(float pDouble[288], int i);
 
 // settings
 const unsigned int SCR_WIDTH = 800;
@@ -52,6 +47,8 @@ bool blinn = false;
 bool blinnKeyPressed = false;
 bool bloom = true;
 bool bloomKeyPressed = false;
+bool rot = false;
+bool rotPressed = false;
 float exposure = 1.0f;
 
 // timing
@@ -77,53 +74,6 @@ float planeVertices[] = {
         10.0f, -0.5f, -10.0f,  0.0f, 1.0f, 0.0f,  10.0f, 10.0f
 };
 
-
-//     set up vertex data (and buffer(s)) and configure vertex attributes
-//     ------------------------------------------------------------------
-float vertices[] = {
-        // positions          // normals           // texture coords
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-        0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  1.0f, 1.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,  0.0f, 0.0f,
-
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   1.0f, 1.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,   0.0f, 0.0f,
-
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-        -0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-        -0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-
-        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-        0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  0.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,  1.0f, 0.0f,
-
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-        0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 1.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-        0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  1.0f, 0.0f,
-        -0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 0.0f,
-        -0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,  0.0f, 1.0f,
-
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f,
-        0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 1.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-        0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  1.0f, 0.0f,
-        -0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 0.0f,
-        -0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,  0.0f, 1.0f
-};
 
 //float bone_vertices[] = {
 //        0.0f,0.4f,0.0f, // 0
@@ -247,40 +197,6 @@ int main()
             std::cout << "Framebuffer not complete!" << std::endl;
     }
 
-    // plane VAO
-    unsigned int planeVAO, planeVBO;
-    glGenVertexArrays(1, &planeVAO);
-    glGenBuffers(1, &planeVBO);
-    glBindVertexArray(planeVAO);
-    glBindBuffer(GL_ARRAY_BUFFER, planeVBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(planeVertices), planeVertices, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-    glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-    glBindVertexArray(0);
-
-//    // first, configure the cube's VAO (and VBO)
-    unsigned int VBO, cubeVAO;
-    glGenVertexArrays(1, &cubeVAO);
-    glGenBuffers(1, &VBO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-
-    // second, configure the light's VAO (VBO stays the same; the vertices are the same for the light object which is also a 3D cube)
-    unsigned int lightCubeVAO;
-    glGenVertexArrays(1, &lightCubeVAO);
-    glBindVertexArray(lightCubeVAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    // note that we update the lamp's position attribute's stride to reflect the updated buffer data
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-    glEnableVertexAttribArray(0);
-
 //    // load textures (we now use a utility function to keep the code more organized)
 //    // -----------------------------------------------------------------------------
     unsigned int woodTexture = loadTexture("../recources/textures/wood.png", true);
@@ -314,22 +230,27 @@ int main()
     shaderBloomFinal.setInt("bloomBlur", 1);
 
 
+    Cube cube;
+
+
     //ANIMATION
 
-//    Bone bone1(0);
-//    Bone bone2(1,0);
+    Bone bone1(0);
+    bone1.set_rest_pos(vec3(-2.0f,0.5f,0.0f));
+    Bone bone2(1,&bone1);
+    bone2.set_rest_pos(vec3(4.0f,0.5f,0.0f));
 
-//    vector<Bone> skeleton = {bone1,bone1};
+    vector<Bone> skeleton = {bone1,bone2};
 
-//    Mesh mesh = vertices_to_mesh(vertices,288);
+    Mesh mesh = cube.mesh;
 
-//    Skin skin(skeleton,mesh);
+    Skin skin(skeleton,mesh);
 
-//    skin.apply_weights();
+    skin.apply_weights();
 
-//    skin.Linear_skinning();
+    skin.rotation(30,0);
 
-
+    skin.Linear_skinning();
 
 
 
@@ -395,45 +316,36 @@ int main()
         model = glm::translate(model, glm::vec3(0.0f, -1.0f, 0.0));
         model = glm::scale(model, glm::vec3(12.5f, 0.5f, 12.5f));
         Blinn_shader.setMat4("model", model);
-        renderCube();
+        cube.mesh.Draw();
+//        renderCube();
         // then create multiple cubes as the scenery
         glBindTexture(GL_TEXTURE_2D, containerTexture);
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, 1.5f, 0.0));
         model = glm::scale(model, glm::vec3(0.5f));
         Blinn_shader.setMat4("model", model);
-        renderCube();
+        cube.mesh.Draw();
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(2.0f, 0.0f, 1.0));
         model = glm::scale(model, glm::vec3(0.5f));
         Blinn_shader.setMat4("model", model);
-        renderCube();
+
+        if(rotPressed)
+            skin.Linear_skinning();
+
+        skin.mesh.Draw();
+
+
+
+//        cube.mesh.Draw();
 
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(-3.0f, 1.0f, 2.0));
         model = glm::rotate(model, glm::radians(60.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
         Blinn_shader.setMat4("model", model);
-        renderCube();
+        cube.mesh.Draw();
 
-//        model = glm::mat4(1.0f);
-//        model = glm::translate(model, glm::vec3(0.0f, 2.7f, 4.0));
-//        model = glm::rotate(model, glm::radians(23.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
-//        model = glm::scale(model, glm::vec3(1.25));
-//        Blinn_shader.setMat4("model", model);
-//        renderCube();
-//
-//        model = glm::mat4(1.0f);
-//        model = glm::translate(model, glm::vec3(-2.0f, 1.0f, -3.0));
-//        model = glm::rotate(model, glm::radians(124.0f), glm::normalize(glm::vec3(1.0, 0.0, 1.0)));
-//        Blinn_shader.setMat4("model", model);
-//        renderCube();
-//
-//        model = glm::mat4(1.0f);
-//        model = glm::translate(model, glm::vec3(-3.0f, 0.0f, 0.0));
-//        model = glm::scale(model, glm::vec3(0.5f));
-//        Blinn_shader.setMat4("model", model);
-//        renderCube();
 
         // finally show all the light sources as bright cubes
         shaderLight.use();
@@ -447,7 +359,7 @@ int main()
             model = glm::scale(model, glm::vec3(0.25f));
             shaderLight.setMat4("model", model);
             shaderLight.setVec3("lightColor", lightColors[i]);
-            renderCube();
+            cube.mesh.Draw();
         }
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
 
@@ -494,60 +406,32 @@ int main()
 }
 
 
+//
+//Mesh vertices_to_mesh(float *vertices,int size){
+//    // position
+//    glm::vec4 Position;
+//    // normal
+//    glm::vec3 Normal;
+//    // texCoords
+//    glm::vec2 TexCoords;
+//
+//    vector<Vertex> vert;
+//    Vertex vex();
+//
+//    for(int i = 0; i<size  ; i+= 8){
+//        Position = vec4(vertices[i],vertices[i+1],vertices[i+2],0);
+//        Normal = vec3(vertices[i+3],vertices[i+4],vertices[i+5]);
+//        TexCoords = vec2(vertices[i+6],vertices[i+7]);
+//        vex.Position = Position;
+//        vex.Normal = Normal;
+//        vex.TexCoords = TexCoords;
+//        vert.push_back(vex);
+//    }
+//
+//    return Mesh(vert);
+//}
 
-Mesh vertices_to_mesh(float *vertices,int size){
-    // position
-    glm::vec4 Position;
-    // normal
-    glm::vec3 Normal;
-    // texCoords
-    glm::vec2 TexCoords;
 
-    vector<Vertex> vert;
-    Vertex vex;
-
-    for(int i = 0; i<size  ; i+= 8){
-        Position = vec4(vertices[i],vertices[i+1],vertices[i+2],0);
-        Normal = vec3(vertices[i+3],vertices[i+4],vertices[i+5]);
-        TexCoords = vec2(vertices[i+6],vertices[i+7]);
-        vex.Position = Position;
-        vex.Normal = Normal;
-        vex.TexCoords = TexCoords;
-        vert.push_back(vex);
-    }
-
-    return Mesh(vert);
-}
-
-
-
-unsigned int cubeVAO = 0;
-unsigned int cubeVBO = 0;
-void renderCube() {
-    // initialize (if necessary)
-    if (cubeVAO == 0)
-    {
-        glGenVertexArrays(1, &cubeVAO);
-        glGenBuffers(1, &cubeVBO);
-        // fill buffer
-        glBindBuffer(GL_ARRAY_BUFFER, cubeVBO);
-        glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-        // link vertex attributes
-        glBindVertexArray(cubeVAO);
-        glEnableVertexAttribArray(0);
-        glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
-        glEnableVertexAttribArray(1);
-        glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
-        glEnableVertexAttribArray(2);
-        glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        glBindVertexArray(0);
-    }
-    // render Cube
-    glBindVertexArray(cubeVAO);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
-    glBindVertexArray(0);
-}
 
 unsigned int quadVAO = 0;
 unsigned int quadVBO;
@@ -598,6 +482,14 @@ void processInput(GLFWwindow *window) {
         camera.ProcessKeyboard(UP, deltaTime);
     if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
         camera.ProcessKeyboard(DOWN, deltaTime);
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS && !rotPressed)
+    {
+        rot = !rot;
+        rotPressed = true;
+    }
+    if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_RELEASE) {
+        rotPressed = false;
+    }
 //    if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
 //        draw_Normals = not draw_Normals;
 //    if (glfwGetKey(window, GLFW_KEY_Z) == GLFW_PRESS) {
@@ -631,6 +523,7 @@ void processInput(GLFWwindow *window) {
         bloomKeyPressed = false;
     }
 }
+
 
 // glfw: whenever the window size changed (by OS or user resize) this callback function executes
 // ---------------------------------------------------------------------------------------------

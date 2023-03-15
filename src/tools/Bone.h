@@ -6,36 +6,49 @@
 #define OPENGLRENDU_BONE_H
 
 
-#include <glm/fwd.hpp>
+#include <glm/glm.hpp>
 #include <glm/detail/type_mat4x4.hpp>
+#include <glm/ext/matrix_transform.hpp>
+
+using namespace glm;
+using namespace std;
 
 class Bone {
 public:
     int ID;
 
-    glm::vec4 coord;
+    glm::vec3 pos;
 
-    glm::mat4 Bind_coord,world_mat,bind_local,transform;
+    glm::mat4 Bind,world_mat,bind_local,local,transform;
 
-    int parent;
+    Bone *parent;
 
     Bone(int ID){
         this->ID = ID;
 
-        Bind_coord = glm::mat4(1.0);
+        Bind = glm::mat4(1.0);
         world_mat = glm::mat4(1.0);
-        transform = glm::mat4(1.0);
-        bind_local = glm::mat4(0);
+        local = glm::mat4(1.0);
+        bind_local = glm::mat4(1.0);
+
+        this->parent = nullptr;
 
     }
 
-    Bone(int ID, int parent){
+    Bone(int ID, Bone *parent){
         this->ID = ID;
         this->parent = parent;
-        Bind_coord = glm::mat4(1.0);
+        Bind = glm::mat4(1.0);
         world_mat = glm::mat4(1.0);
-        transform = glm::mat4(1.0);
+        local = glm::mat4(1.0);
 
+    }
+
+
+
+    void set_rest_pos(vec3 pos){
+        this->pos = pos;
+        this->bind_local = glm::translate(mat4(1.0f),pos);
     }
 
 

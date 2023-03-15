@@ -32,6 +32,6 @@ include_directories(
         includes
 )
 
-add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h src/tools/camera.h src/Data/Mesh.h src/Data/BezierCurve.h src/Data/BezierSurface.h src/tools/Lights.h src/Data/Model.h src/tools/Bone.cpp src/tools/Bone.h src/tools/Skin.h)
+add_executable(helloWindow ${folder_source} ${folder_header} includes/stb_image.h includes/stb_image.cpp includes/stb_image.h)
 
 target_link_libraries(helloWindow ${LIBS} ${CMAKE_DL_LIBS})

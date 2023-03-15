@@ -104,6 +104,9 @@
 		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierSurface.h">
 			<Option target="helloWindow"/>
 		</Unit>
+		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/Data/Cube.h">
+			<Option target="helloWindow"/>
+		</Unit>
 		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/Data/Mesh.h">
 			<Option target="helloWindow"/>
 		</Unit>
@@ -132,6 +135,12 @@
 			<Option target="helloWindow"/>
 		</Unit>
 		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/tools/Skin.h">
+			<Option target="helloWindow"/>
+		</Unit>
+		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.cpp">
+			<Option target="helloWindow"/>
+		</Unit>
+		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.h">
 			<Option target="helloWindow"/>
 		</Unit>
 		<Unit filename="/home/robbyn/CLionProjects/OpenGlRendu/src/tools/camera.h">

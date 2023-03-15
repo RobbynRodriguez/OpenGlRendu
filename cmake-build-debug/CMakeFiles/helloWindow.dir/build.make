@@ -111,10 +111,24 @@ CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Skin.cpp -o CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.s
 
+CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o: CMakeFiles/helloWindow.dir/flags.make
+CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o: /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.cpp
+CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o: CMakeFiles/helloWindow.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o -MF CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o.d -o CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o -c /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.cpp
+
+CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.cpp > CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.i
+
+CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.cpp -o CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.s
+
 CMakeFiles/helloWindow.dir/src/tools/glad.c.o: CMakeFiles/helloWindow.dir/flags.make
 CMakeFiles/helloWindow.dir/src/tools/glad.c.o: /home/robbyn/CLionProjects/OpenGlRendu/src/tools/glad.c
 CMakeFiles/helloWindow.dir/src/tools/glad.c.o: CMakeFiles/helloWindow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/helloWindow.dir/src/tools/glad.c.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building C object CMakeFiles/helloWindow.dir/src/tools/glad.c.o"
 	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/helloWindow.dir/src/tools/glad.c.o -MF CMakeFiles/helloWindow.dir/src/tools/glad.c.o.d -o CMakeFiles/helloWindow.dir/src/tools/glad.c.o -c /home/robbyn/CLionProjects/OpenGlRendu/src/tools/glad.c
 
 CMakeFiles/helloWindow.dir/src/tools/glad.c.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/helloWindow.dir/src/tools/glad.c.s: cmake_force
 CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o: CMakeFiles/helloWindow.dir/flags.make
 CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o: /home/robbyn/CLionProjects/OpenGlRendu/includes/stb_image.cpp
 CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o: CMakeFiles/helloWindow.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o -MF CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o.d -o CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o -c /home/robbyn/CLionProjects/OpenGlRendu/includes/stb_image.cpp
 
 CMakeFiles/helloWindow.dir/includes/stb_image.cpp.i: cmake_force
@@ -144,6 +158,7 @@ helloWindow_OBJECTS = \
 "CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o" \
 "CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o" \
 "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o" \
+"CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o" \
 "CMakeFiles/helloWindow.dir/src/tools/glad.c.o" \
 "CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o"
 
@@ -153,12 +168,13 @@ helloWindow_EXTERNAL_OBJECTS =
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o
+/home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/src/tools/glad.c.o
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/includes/stb_image.cpp.o
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/build.make
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: /usr/lib/x86_64-linux-gnu/libglfw.so.3.3
 /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow: CMakeFiles/helloWindow.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/robbyn/CLionProjects/OpenGlRendu/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable /home/robbyn/CLionProjects/OpenGlRendu/bin/helloWindow"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/helloWindow.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -17,22 +17,7 @@ using namespace std;
 
 #define MAX_BONE_INFLUENCE 4
 
-//struct Vertex {
-//    // position
-//    glm::vec3 Position;
-//    // normal
-//    glm::vec3 Normal;
-//    // texCoords
-//    glm::vec2 TexCoords;
-//    // tangent
-//    glm::vec3 Tangent;
-//};
-//
-//struct Texture {
-//    unsigned int id;
-//    string type;
-//    string path;
-//};
+
 using namespace glm;
 
 class BezierSurface {
@@ -142,14 +127,14 @@ private:
         vector<glm::vec3> pts_c1,pts_c2;
 //        pts_c1 = C1.vertices;
 //        pts_c2 = C2.vertices;
-        Vertex point;
+        Vertex point();
 
-        for(float i = 0 ; i< C1.vertices.size(); i ++)
-            for(float j = 0 ; j< C2.vertices.size(); j ++) {
-                point.Position = vec4(C1.vertices[i] * C2.vertices[j],0);
-                point.TexCoords = {i/C1.vertices.size(),j/C2.vertices.size()};
-                vertices.push_back(point);
-            }
+//        for(float i = 0 ; i< C1.vertices.size(); i ++)
+//            for(float j = 0 ; j< C2.vertices.size(); j ++) {
+//                point.Position = vec4(C1.vertices[i] * C2.vertices[j],0);
+//                point.TexCoords = {i/C1.vertices.size(),j/C2.vertices.size()};
+//                vertices.push_back(point);
+//            }
 
         int n,m;
         n = C1.vertices.size();

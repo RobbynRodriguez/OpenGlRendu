@@ -359,6 +359,7 @@ CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: \
  /usr/include/c++/9/bits/invoke.h \
  /home/robbyn/CLionProjects/OpenGlRendu/src/Data/Mesh.h \
  /home/robbyn/CLionProjects/OpenGlRendu/src/Data/../tools/Shader.h \
+ /home/robbyn/CLionProjects/OpenGlRendu/src/Data/../tools/Vertex.h \
  /usr/include/c++/9/math.h \
  /home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierSurface.h \
  /home/robbyn/CLionProjects/OpenGlRendu/src/Data/BezierCurve.h \
@@ -367,4 +368,5 @@ CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o: \
  /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Bone.h \
  /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Skin.h \
  /home/robbyn/CLionProjects/OpenGlRendu/src/tools/Bone.h \
- /home/robbyn/CLionProjects/OpenGlRendu/src/tools/../Data/Mesh.h
+ /home/robbyn/CLionProjects/OpenGlRendu/src/tools/../Data/Mesh.h \
+ /home/robbyn/CLionProjects/OpenGlRendu/src/Data/Cube.h

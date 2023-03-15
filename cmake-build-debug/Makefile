@@ -225,6 +225,30 @@ src/tools/Skin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.s
 .PHONY : src/tools/Skin.cpp.s
 
+src/tools/Vertex.o: src/tools/Vertex.cpp.o
+.PHONY : src/tools/Vertex.o
+
+# target to build an object file
+src/tools/Vertex.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o
+.PHONY : src/tools/Vertex.cpp.o
+
+src/tools/Vertex.i: src/tools/Vertex.cpp.i
+.PHONY : src/tools/Vertex.i
+
+# target to preprocess a source file
+src/tools/Vertex.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.i
+.PHONY : src/tools/Vertex.cpp.i
+
+src/tools/Vertex.s: src/tools/Vertex.cpp.s
+.PHONY : src/tools/Vertex.s
+
+# target to generate assembly for a file
+src/tools/Vertex.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/helloWindow.dir/build.make CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.s
+.PHONY : src/tools/Vertex.cpp.s
+
 src/tools/glad.o: src/tools/glad.c.o
 .PHONY : src/tools/glad.o
 
@@ -270,6 +294,9 @@ help:
 	@echo "... src/tools/Skin.o"
 	@echo "... src/tools/Skin.i"
 	@echo "... src/tools/Skin.s"
+	@echo "... src/tools/Vertex.o"
+	@echo "... src/tools/Vertex.i"
+	@echo "... src/tools/Vertex.s"
 	@echo "... src/tools/glad.o"
 	@echo "... src/tools/glad.i"
 	@echo "... src/tools/glad.s"

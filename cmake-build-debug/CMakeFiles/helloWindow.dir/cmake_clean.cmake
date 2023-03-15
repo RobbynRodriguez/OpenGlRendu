@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o.d"
   "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o"
   "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o.d"
+  "CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o"
+  "CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o.d"
   "CMakeFiles/helloWindow.dir/src/tools/glad.c.o"
   "CMakeFiles/helloWindow.dir/src/tools/glad.c.o.d"
 )

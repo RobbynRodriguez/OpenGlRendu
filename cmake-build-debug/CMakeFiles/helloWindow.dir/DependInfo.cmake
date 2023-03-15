@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/robbyn/CLionProjects/OpenGlRendu/src/HelloWindow.cpp" "CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o" "gcc" "CMakeFiles/helloWindow.dir/src/HelloWindow.cpp.o.d"
   "/home/robbyn/CLionProjects/OpenGlRendu/src/tools/Bone.cpp" "CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o" "gcc" "CMakeFiles/helloWindow.dir/src/tools/Bone.cpp.o.d"
   "/home/robbyn/CLionProjects/OpenGlRendu/src/tools/Skin.cpp" "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o" "gcc" "CMakeFiles/helloWindow.dir/src/tools/Skin.cpp.o.d"
+  "/home/robbyn/CLionProjects/OpenGlRendu/src/tools/Vertex.cpp" "CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o" "gcc" "CMakeFiles/helloWindow.dir/src/tools/Vertex.cpp.o.d"
   )
 
 # Targets to which this target links.
